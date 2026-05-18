@@ -72,11 +72,15 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<ComponentManufacturer>()
             .Property(cm => cm.FoundationDate)
             .HasColumnType("datetime");
-            
+        modelBuilder.Entity<ComponentManufacturer>()
+            .Property(cm => cm.Abbreviation)
+            .HasMaxLength(30)
+            .IsRequired();
+        modelBuilder.Entity<ComponentManufacturer>()
+            .Property(cm => cm.FullName)
+            .HasMaxLength(300)
+            .IsRequired();
         
-
-
-
     }
     
 }
